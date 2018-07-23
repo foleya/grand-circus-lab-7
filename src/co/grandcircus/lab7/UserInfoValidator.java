@@ -7,21 +7,30 @@ public class UserInfoValidator {
 	public static void main(String[] args) {
 		Scanner scnr = new Scanner(System.in);
 
+		System.out.println("Hello new user! When you're ready, hit enter to "
+				+ " enter a few details about yourself.");
+		scnr.nextLine();
+		
 		// Prompt for name
-		getValidName(scnr);
+		String name = getValidName(scnr);
 
 		// Prompt for email
-		getValidEmail(scnr);
+		String email = getValidEmail(scnr);
 
 		// Prompt for phone
-		getValidPhoneNumber(scnr);
+		String phoneNumber = getValidPhoneNumber(scnr);
 
 		// Prompt for date
-		getValidDate(scnr);
+		String birthday = getValidDate(scnr);
+		
+		System.out.printf("\nThanks, %s!%nWe'll try to reach you at %s or %s to wish you"
+				+ "%na happy birthday on %s next year! Goodbye for now!",
+				name, email, phoneNumber, birthday.substring(0, 5));
 
 		scnr.close();
 	}
 
+	// Takes user input and returns it only when all name validators are satisfied.
 	private static String getValidName(Scanner scnr) {
 		System.out.println("Please enter your first name (capitalized, letters only, 30 or less characters): ");
 		String input = scnr.nextLine();
@@ -36,6 +45,7 @@ public class UserInfoValidator {
 		}
 	}
 	
+	// Takes user input and returns it only when all name email validators are satisfied.
 	private static String getValidEmail(Scanner scnr) {
 		System.out.println("Please enter your e-mail address: ");
 		String input = scnr.nextLine();
@@ -48,6 +58,7 @@ public class UserInfoValidator {
 		}
 	}
 	
+	// Takes user input and returns it only when all phone number validators are satisfied.
 	private static String getValidPhoneNumber(Scanner scnr) {
 		System.out.println("Please enter your phone number (###-###-####): ");
 		String input = scnr.nextLine();
@@ -60,6 +71,7 @@ public class UserInfoValidator {
 		}
 	}
 	
+	// Takes user input and returns it only when all date validators are satisfied.
 	private static String getValidDate(Scanner scnr) {
 		System.out.println("Please enter your birthday (DD/MM/YYYY): ");
 		String input = scnr.nextLine();
